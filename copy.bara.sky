@@ -1,22 +1,17 @@
 core.workflow(
-    name = "default",
-
-    origin = git.origin(
-        url = "git@github.com:ascend-io/source.git",
-        ref = "smparkes/maven",
+    name="default",
+    origin=git.origin(
+        url="git@github.com:ascend-io/source.git",
+        ref="smparkes/maven",
     ),
-
-    destination = git.destination(
-        url = "git@github.com:ascend-io/test-harness.git",
-        fetch = "master",
-        push = "master",
+    destination=git.destination(
+        url="git@github.com:ascend-io/test-harness.git",
+        fetch="master",
+        push="master",
     ),
-
-    origin_files = glob(["spark/function/test-harness/**"]),
-
-    authoring = authoring.pass_thru("Ascend.IO <info@ascend.io>"),
-
-    transformations = [
+    origin_files=glob(["spark/function/test-harness/**"]),
+    authoring=authoring.pass_thru("Ascend.IO <info@ascend.io>"),
+    transformations=[
         core.move("spark/function/test-harness", ""),
     ],
 )

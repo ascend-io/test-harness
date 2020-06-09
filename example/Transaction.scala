@@ -42,7 +42,7 @@ object Transaction {
       sale_price = row.getAs[String](" SALE PRICE ").replace(",", "").toLong,
       sale_date = {
         val Array(month, day, year) = row.getAs[String]("SALE DATE").split("/")
-        Date.valueOf(s"20$year/$month$day")
+        Date.valueOf(s"20$year-$month-$day")
       }
     )
 }
